@@ -18,6 +18,13 @@ window.addEventListener('scroll', () => {
         : 'rgba(10, 22, 40, 0.96)';
 });
 
+// Hide timeline photos that fail to load (file not uploaded yet)
+document.querySelectorAll('.tl-photo').forEach(img => {
+    img.addEventListener('error', function() {
+        this.style.display = 'none';
+    });
+});
+
 // Fade-in on scroll
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
